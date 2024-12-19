@@ -3,13 +3,13 @@ html {
 }
 
 *, *::before, *::after {
+    padding: 0;
+    margin: 0;
     box-sizing: inherit;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-}
+
+/* -- Base container layout -- */
 
 .container{
     height: 100vh;
@@ -23,8 +23,14 @@ body {
 }
 
 .header{
-    background-color: black;
+    background-color: wheat;
     grid-area: header;
+    display: grid;
+    grid-template-areas: 
+        "search options"
+        "welcome buttons";
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 2fr;
 }
 
 .main{
@@ -32,10 +38,10 @@ body {
     grid-area: main;
     display: grid;
     grid-template-areas: 
-    "projects announcements"
-    "projects trending";
+        "projects announcements"
+        "projects trending";
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: repeat(1fr);
+    grid-template-rows: repeat(2, 1fr);
     padding: 15px;
     gap: 15px;
 }
@@ -45,9 +51,20 @@ body {
     grid-area: sidebar;
 }
 
+
+/* -- Main container layout -- */
+
 .projects{
     background-color: aqua;
     grid-area: projects;
+    display: grid;
+    grid-template-areas: 
+        "title title"
+        "project project"
+        "project project"
+        "project project";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto repeat(3, 1fr);
 }
 
 .announcements{
@@ -58,4 +75,36 @@ body {
 .trending{
     background-color: brown;
     grid-area: trending;
+}
+
+
+/* -- Header container layout -- */
+
+.search-bar{
+    grid-area: search;
+}
+
+.profile-options{
+    grid-area: options;
+}
+
+.welcome-message{
+    grid-area: welcome;
+}
+
+.user-options{
+    grid-area: buttons;
+}
+
+
+/* -- Sidebar container layout -- */
+
+
+
+
+/* -- Projects container layout -- */
+
+.projects h1{
+    grid-area: title;
+    background-color: white;
 }
