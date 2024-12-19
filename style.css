@@ -11,3 +11,51 @@ body {
     padding: 0;
 }
 
+.container{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-areas: 
+        "sidebar header"
+        "sidebar main";
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 4fr;
+}
+
+.header{
+    background-color: black;
+    grid-area: header;
+}
+
+.main{
+    background-color: red;
+    grid-area: main;
+    display: grid;
+    grid-template-areas: 
+    "projects announcements"
+    "projects trending";
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(1fr);
+    padding: 15px;
+    gap: 15px;
+}
+
+.sidebar{
+    background-color: blue;
+    grid-area: sidebar;
+}
+
+.projects{
+    background-color: aqua;
+    grid-area: projects;
+}
+
+.announcements{
+    background-color: blueviolet;
+    grid-area: announcements;
+}
+
+.trending{
+    background-color: brown;
+    grid-area: trending;
+}
